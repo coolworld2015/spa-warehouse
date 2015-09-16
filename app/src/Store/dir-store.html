@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<center>
+    <div id="top" class="header" scroll-to="back">{{title}}</div>
+    <input type="text" class="form-control" ng-model="query.name">
+    <table class="table table-striped input" id="grid">
+        <th ng-click=storeSort("name") style="width:50%">Name</th>
+        <th ng-click=storeSort("quantity")>Quantity</th>
+        <tr ng-repeat="item in filteredStore | orderBy:sort:rev | filter:query as storeFilter track by $index">
+            <td>{{item.name}}</td>
+            <td>{{item.quantity | number:2}}</td>
+        </tr>
+    </table>
+    <hr>
+	<div class="label label-default" 
+		style="font-size:17px; background-color:#337ab7"
+		scroll-to="top">
+		Records count: {{storeFilter.length}} ({{store.length}})
+	</div>
+	<hr>
+	<h2 class="label label-primary" style="font-size:17px;">Items per page:
+		<input style="border:none; width: 30px; font-size:17px; background-color:#337ab7" 
+		type="text" ng-model="numPerPage" value={{numPerPage}} ng-change=updateChange(numPerPage,"numPerPage")>
+	</h2>	
+	
+	<div><pagination total-items="totalItems" ng-model="currentPage" max-size="maxSize" class="pagination-sm" boundary-links="true"></pagination></div>
+
+    <button class="btn btn-primary button" ng-click="storeBack()" id="back">Back</button>
+	<br><br>
+</center>
+</body>
+</html>

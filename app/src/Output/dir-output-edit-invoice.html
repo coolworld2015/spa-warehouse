@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<center>
+    <form ng-submit="outputEditInvoiceSubmit()" novalidate name="form">
+		<div class="header">InvoiceRecordID: {{invoiceRecordID}}</div>
+        <br><br>
+        <table class="table table-bordered">
+            <tr>
+                <td>
+                    <input type="text" class="form-control input"
+                           readonly style="width:130px"
+                           value="Commoditie:">
+                </td>
+                <td style="width:100%">
+                    <input type="text" required placeholder="Commodities" class="form-control input"
+                           ng-model="invoiceGoods" readonly
+                           ng-change=updateChange(invoiceGoods,"invoiceGoods")>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="text" class="form-control input"
+                           readonly style="width:130px"
+                           value="Price:">
+                </td>
+                <td style="width:100%">
+                    <input type="text" required placeholder="Price" class="form-control input"
+                           ng-model="invoicePrice" readonly
+                           ng-change=updateChange(invoicePrice,"invoicePrice")>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="text" class="form-control input"
+                           readonly style="width:130px"
+                           value="Quantity:">
+                </td>
+                <td style="width:100%">
+                    <input type="text" required placeholder="Quantity" class="form-control input"
+                           ng-model="invoiceQuantity" readonly
+                           ng-change=updateChange(invoiceQuantity,"invoiceQuantity")>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="text" class="form-control input"
+                           readonly style="width:130px"
+                           value="Description:">
+                </td>
+                <td style="width:100%">
+                    <input type="text" class="form-control input" placeholder="Transaction description"
+                           ng-model="invoiceDescription" value={{invoiceDescription}} required
+                           ng-change=updateChange(invoiceDescription,"invoiceDescription")
+                           name="invoiceDescription">
+
+                    <div ng-if="form.$submitted">
+                        <div ng-show="form.invoiceDescription.$error.required" class="valid">Value required</div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="text" class="form-control input"
+                           readonly style="width:130px"
+                           value="Total:">
+                </td>
+                <td style="width:100%">
+                    <input type="text" required placeholder="Total" class="form-control input"
+                           ng-model="invoiceTotal" readonly
+                           ng-change=updateChange(invoiceTotal,"invoiceTotal")>
+                </td>
+            </tr>
+        </table>
+
+        <input class="btn btn-primary button" type="submit" value="Submit">&nbsp
+        <button class="btn btn-primary button" ng-click="outputDeleteInvoiceDialog()">Delete</button><br><br>
+        <button class="btn btn-primary button" ng-click="goOutputEditForm()">Back</button>
+    </form>
+</center>
+</body>
+</html>

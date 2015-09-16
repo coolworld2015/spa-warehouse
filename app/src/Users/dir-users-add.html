@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<center>
+    <form ng-submit="usersAddSubmit()" novalidate name="form">
+        <div class="header">New record</div>
+        <br><br>
+        <table class="table table-bordered">
+            <tr>
+                <td>
+                    <!--<input type="text" class="form-control input"-->
+                           <!--readonly style1="width:130px"-->
+                           <!--value="Login">-->
+            <!--     
+                </td>
+                <td style="width:100%">
+			-->	
+                    <input type="text" class="form-control input" placeholder="User login"
+                           ng-model="name" value={{name}} required
+                           ng-change=updateChange(name,"name")
+                           name="name">
+
+                    <div ng-if="form.$submitted">
+                        <div ng-show="form.name.$error.required" class="valid">Value required</div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <!--<input type="text" class="form-control input"-->
+                           <!--readonly value="Password">-->
+            <!--     
+                </td>
+                <td style="width:100%">
+			-->	
+                    <input type="text" class="form-control input" placeholder="User password"
+                           ng-model="pass" value={{pass}} required
+                           ng-change=updateChange(pass,"pass")
+                           name="pass">
+
+                    <div ng-if="form.$submitted">
+                        <div ng-show="form.pass.$error.required" class="valid">Value required</div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <!--<input type="text" class="form-control input"-->
+                           <!--readonly value="Role">-->
+            <!--     
+                </td>
+                <td style="width:100%">
+			-->	
+                    <input type="text" class="form-control input" placeholder="User description"
+                           ng-model="description" value={{description}} required
+                           ng-change=updateChange(description,"description")
+                           name="description">
+
+                    <div ng-if="form.$submitted">
+                        <div ng-show="form.description.$error.required" class="valid">Value required</div>
+                    </div>
+                </td>
+            </tr>
+        </table>
+
+        <input class="btn btn-primary button" type="submit" value="Submit">&nbsp
+        <button class="btn btn-primary button" ng-click="usersEditBack()">Back</button>
+    </form>
+</center>
+</body>
+</html>

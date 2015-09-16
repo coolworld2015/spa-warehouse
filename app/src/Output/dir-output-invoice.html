@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <form ng-submit="outputAddSubmitInvoice()" novalidate name="form">
+        <div class="header">New record</div>
+        <br><br>
+        <table class="table table-bordered">
+            <tr>
+                <td>
+                    <input type="text" class="form-control input"
+                           readonly style="width:130px"
+                           value="Commoditie:">
+                </td>
+                <td style="width:100%">
+                    <select required class="form-control input"
+                            ng-model="selectedItemInvoice"
+                            ng-options="goodsOption.name for goodsOption in goodsOptions"
+                            ng-change=updateChange(selectedItemInvoice,"selectedItemInvoice")>
+                    </select>
+
+                    <div ng-show="errorInvoice" class="valid">Value required</div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="text" class="form-control input"
+                           readonly style="width:130px"
+                           value="Price:">
+                </td>
+                <td style="width:100%">
+                    <input type="text" class="form-control input" placeholder="Price"
+                           ng-model="invoicePrice" value={{invoicePrice}} required
+                           ng-change=updateChange(invoicePrice,"invoicePrice")
+                           name="invoicePrice">
+
+                    <div ng-if="form.$submitted">
+                        <div ng-show="form.invoicePrice.$error.required" class="valid">Value required</div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="text" class="form-control input"
+                           readonly style="width:130px"
+                           value="Quantity:">
+                </td>
+                <td style="width:100%">
+                    <input type="text" class="form-control input" placeholder="Quantity"
+                           digits-only
+                           ng-model="invoiceQuantity" value={{invoiceQuantity}} required
+                           ng-change=updateChange(invoiceQuantity,"invoiceQuantity")
+                           name="invoiceQuantity">
+
+                    <div ng-if="form.$submitted">
+                        <div ng-show="form.invoiceQuantity.$error.required" class="valid">Value required</div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="text" class="form-control input"
+                           readonly style="width:130px"
+                           value="Description:">
+                </td>
+                <td style="width:100%">
+                    <input type="text" class="form-control input" placeholder="Description"
+                           ng-model="invoiceDescription" value={{invoiceDescription}} required
+                           ng-change=updateChange(invoiceDescription,"invoiceDescription")
+                           name="invoiceDescription">
+
+                    <div ng-if="form.$submitted">
+                        <div ng-show="form.invoiceDescription.$error.required" class="valid">Value required</div>
+                    </div>
+                </td>
+            </tr>
+        </table>
+
+		<center>
+			<input class="btn btn-primary button" type="submit" value="Submit">&nbsp
+			<button class="btn btn-primary button" ng-click="goOutputEditForm()">Back</button>
+		</center>
+    </form>
+</body>
+</html>

@@ -1,0 +1,138 @@
+﻿<html ng-app="App">
+<title>AngularJS Warehouse</title>
+<META name=viewport content="initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+<link rel="stylesheet" href="styles.css"/>
+<body>
+
+<div ng-show="loading" class="header loading">
+    <span>Loading...</span>
+</div>
+
+<div ng-cloak ng-show="myError" class="header error">
+    <span>Something went wrong</span>
+</div>
+
+<div ng-switch on="view">
+    <!------------------------------------------------------------------------------------------------------------------------------------->
+    <dir-login ng-switch-when="login"></dir-login>
+
+    <!------------------------------------------------------------------------------------------------------------------------------------->
+    <!--
+        <dir-menu ng-switch-when="main"></dir-menu>
+    -->
+    <dir-main ng-switch-when="main"></dir-main>
+
+    <!------------------------------------------------------------------------------------------------------------------------------------->
+    <div id="Store" ng-controller="Store">
+        <!--
+             <dir-menu ng-switch-when="store"></dir-menu>
+             <dir-menu ng-switch-when="storeEdit"></dir-menu>
+             <dir-menu ng-switch-when="storeAdd"></dir-menu>
+         -->
+
+        <dir-store ng-switch-when="store"></dir-store>
+        <dir-store-edit ng-switch-when="storeEdit"></dir-store-edit>
+        <dir-store-add ng-switch-when="storeAdd"></dir-store-add>
+    </div>
+
+    <!------------------------------------------------------------------------------------------------------------------------------------->
+    <div id="Goods" ng-controller="Goods">
+        <!--
+             <dir-menu ng-switch-when="goods"></dir-menu>
+             <dir-menu ng-switch-when="goodsEdit"></dir-menu>
+             <dir-menu ng-switch-when="goodsAdd"></dir-menu>
+         -->
+
+        <dir-goods ng-switch-when="goods"></dir-goods>
+        <dir-goods-edit ng-switch-when="goodsEdit"></dir-goods-edit>
+        <dir-goods-add ng-switch-when="goodsAdd"></dir-goods-add>
+
+        <dir-goods-dialog ng-switch-when="goodsDialog"></dir-goods-dialog>
+    </div>
+
+    <!------------------------------------------------------------------------------------------------------------------------------------->
+    <div id="Clients" ng-controller="Clients">
+        <!--
+            <dir-menu ng-switch-when="clients"></dir-menu>
+            <dir-menu ng-switch-when="clientsEdit"></dir-menu>
+            <dir-menu ng-switch-when="clientsAdd"></dir-menu>
+        -->
+
+        <dir-clients ng-switch-when="clients"></dir-clients>
+        <dir-clients-edit ng-switch-when="clientsEdit"></dir-clients-edit>
+        <dir-clients-add ng-switch-when="clientsAdd"></dir-clients-add>
+
+        <dir-clients-dialog ng-switch-when="clientsDialog"></dir-clients-dialog>
+    </div>
+
+    <!------------------------------------------------------------------------------------------------------------------------------------->
+    <div id="Input" ng-controller="Input">
+        <!--
+            <dir-menu ng-switch-when="input"></dir-menu>
+            <dir-menu ng-switch-when="inputEdit"></dir-menu>
+            <dir-menu ng-switch-when="inputAdd"></dir-menu>
+            <dir-menu ng-switch-when="inputAddInvoice"></dir-menu>
+            <dir-menu ng-switch-when="inputEditInvoice"></dir-menu>
+        -->
+
+        <dir-input ng-switch-when="input"></dir-input>
+        <dir-input-edit ng-switch-when="inputEdit"></dir-input-edit>
+        <dir-input-add ng-switch-when="inputAdd"></dir-input-add>
+
+        <dir-input-edit-invoice ng-switch-when="inputEditInvoice"></dir-input-edit-invoice>
+        <dir-input-add-invoice ng-switch-when="inputAddInvoice"></dir-input-add-invoice>
+        <dir-input-edit-form ng-switch-when="inputEditForm"></dir-input-edit-form>
+
+        <dir-input-dialog ng-switch-when="inputDialog"></dir-input-dialog>
+        <dir-input-dialog-invoice ng-switch-when="inputInvoiceDialog"></dir-input-dialog-invoice>
+    </div>
+
+    <!------------------------------------------------------------------------------------------------------------------------------------->
+    <div id="Output" ng-controller="Output">
+        <!--
+            <dir-menu ng-switch-when="output"></dir-menu>
+            <dir-menu ng-switch-when="outputEdit"></dir-menu>
+            <dir-menu ng-switch-when="outputAdd"></dir-menu>
+            <dir-menu ng-switch-when="outputAddInvoice"></dir-menu>
+            <dir-menu ng-switch-when="outputEditInvoice"></dir-menu>
+        -->
+
+        <dir-output ng-switch-when="output"></dir-output>
+        <dir-output-edit ng-switch-when="outputEdit"></dir-output-edit>
+        <dir-output-add ng-switch-when="outputAdd"></dir-output-add>
+
+        <dir-output-edit-invoice ng-switch-when="outputEditInvoice"></dir-output-edit-invoice>
+        <dir-output-add-invoice ng-switch-when="outputAddInvoice"></dir-output-add-invoice>
+        <dir-output-edit-form ng-switch-when="outputEditForm"></dir-output-edit-form>
+
+        <dir-output-dialog ng-switch-when="outputDialog"></dir-output-dialog>
+        <dir-output-dialog-invoice ng-switch-when="outputInvoiceDialog"></dir-output-dialog-invoice>	
+    </div>
+
+    <!------------------------------------------------------------------------------------------------------------------------------------->
+    <div id="Users" ng-controller="Users">
+        <!--
+            <dir-menu ng-switch-when="staff"></dir-menu>
+            <dir-menu ng-switch-when="staffEdit"></dir-menu>
+            <dir-menu ng-switch-when="staffAdd"></dir-menu>
+        -->
+
+        <dir-users ng-switch-when="users"></dir-users>
+        <dir-users-edit ng-switch-when="usersEdit"></dir-users-edit>
+        <dir-users-add ng-switch-when="usersAdd"></dir-users-add>
+
+        <dir-users-dialog ng-switch-when="usersDialog"></dir-users-dialog>
+    </div>
+
+    <!------------------------------------------------------------------------------------------------------------------------------------->
+    <div id="Config" ng-controller="Config">
+        <dir-config ng-switch-when="config"></dir-config>
+    </div>
+    <!------------------------------------------------------------------------------------------------------------------------------------->
+</div>
+
+<script src="app.js"></script>
+<script src="templates.js"></script>
+
+</body>
+</html>

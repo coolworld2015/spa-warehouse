@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<center>
+    <div id="top" class="header" scroll-to="back">{{title}}</div>
+    <input type="text" class="form-control" ng-model="query.number">
+    <table class="table table-striped input" id="grid">
+        <th ng-click=inputSort("number") style="width:10%">ID</th>
+        <th ng-click=inputSort("client") style="width:40%">Customer</th>
+        <th ng-click=inputSort("date") style="width:40%">Date</th>
+        <th ng-click=inputSort("total") style="width:10%">Total</th>
+        <tr ng-repeat="item in filteredInput | filter:query as inputFilter track by $index" ng-click="inputEditForm(item)">
+            <td>{{item.number}}</td>
+            <td>{{item.client}}</td>
+            <td>{{item.date}}</td>
+            <td>{{item.total | number:2}}</td>
+        </tr>
+    </table>
+    <hr>
+	<div class="label label-default" 
+		style="font-size:17px; background-color:#337ab7"
+		scroll-to="top">
+		Records count: {{inputFilter.length}} ({{input.length}})
+	</div>
+	<hr>
+	<h2 class="label label-primary" style="font-size:17px;">Items per page:
+		<input style="border:none; width: 30px; font-size:17px; background-color:#337ab7" 
+		type="text" ng-model="numPerPage" value={{numPerPage}} ng-change=updateChange(numPerPage,"numPerPage")>
+	</h2>	
+	
+	<div><pagination total-items="totalItems" ng-model="currentPage" max-size="maxSize" class="pagination-sm" boundary-links="true"></pagination></div>
+
+    <button class="btn btn-primary button" ng-click="inputAdd()">Add</button>&nbsp
+    <button class="btn btn-primary button" ng-click="inputBack()" id="back">Back</button>
+	<br><br>
+</center>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<nav class="navbar navbar-default">
+    <ul class="nav nav-pills">
+        <li ng-click=mainNav("main") ng-class="{active:isActive(0)}"><a href="">Main</a></li>
+        <li ng-click=mainNav("store") ng-class="{active:isActive(1)}"><a href="">Store</a></li>
+        <li ng-click=mainNav("goods") ng-class="{active:isActive(2)}"><a href="">Commodities</a></li>
+        <li ng-click=mainNav("clients") ng-class="{active:isActive(3)}"><a href="">Customers</a></li>
+        <li ng-click=mainNav("input") ng-class="{active:isActive(4)}"><a href="">Purchase Invoices</a></li>
+        <li ng-click=mainNav("output") ng-class="{active:isActive(5)}"><a href="">Sales Invoices</a></li>
+        <li ng-click=mainNav("staff") ng-class="{active:isActive(6)}"><a href="">Users</a></li>
+        <li ng-click=mainNav("login")><a href="">Logout</a></li>
+        </ul>
+    </nav>
+
+</body>
+</html>

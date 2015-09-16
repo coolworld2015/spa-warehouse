@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<center>
+    <div id="top" class="header" scroll-to="back">{{title}}</div>
+    <input type="text" class="form-control" ng-model="query.name">
+    <table class="table table-striped input" id="grid">
+        <th ng-click=usersSort("name") style="width:50%">Login</th>
+        <th ng-click=usersSort("pass")>Password</th>
+        <tr ng-repeat="item in filteredUsers | orderBy:sort:rev | filter:query as usersFilter track by $index" ng-click="usersEditForm(item)">
+            <td>{{item.name}}</td>
+            <td>{{item.pass}}</td>
+        </tr>
+    </table>
+    <hr>
+	<div class="label label-default" 
+		style="font-size:17px; background-color:#337ab7"
+		scroll-to="top">
+		Records count: {{usersFilter.length}} ({{users.length}})
+	</div>
+	<hr>
+    
+	<h2 class="label label-primary" style="font-size:17px;">Items per page:
+		<input style="border:none; width: 30px; font-size:17px; background-color:#337ab7" 
+		type="text" ng-model="numPerPage" value={{numPerPage}} ng-change=updateChange(numPerPage,"numPerPage")>
+	</h2>	
+	
+    <div><pagination total-items="totalItems" ng-model="currentPage" max-size="maxSize" class="pagination-sm" boundary-links="true"></pagination></div>
+
+    <button class="btn btn-primary button" ng-click="usersAdd()">Add</button>&nbsp
+    <button class="btn btn-primary button" ng-click="usersBack()" id="back">Back</button>
+    <br><br>
+</center>
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <form ng-submit="outputAddSubmit()" novalidate name="form">
+        <div class="header">New record</div>
+        <br><br>
+        <table class="table table-bordered">
+            <tr>
+                <td>
+                    <input type="text" class="form-control input"
+                           readonly style="width:130px"
+                           value="ID:">
+                </td>
+                <td style="width:100%">
+                    <input type="text" class="form-control input" placeholder="Transaction ID"
+                           digits-only
+                           ng-model="number" value={{number}} required
+                           ng-change=updateChange(number,"number")
+                           name="number">
+
+                    <div ng-if="form.$submitted">
+                        <div ng-show="form.number.$error.required" class="valid">Value required</div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="text" class="form-control input"
+                           readonly style="width:130px"
+                           value="Customer:">
+                </td>
+                <td style="width:100%">
+                    <select required class="form-control input"
+                            ng-model="selectedItem"
+                            ng-options="clientsOption.name for clientsOption in clientsOptions track by clientsOption.name"
+                            ng-change="updateChange(selectedItem,'selectedItem')">
+                    </select>
+
+                    <div ng-show="error" class="valid">Value required</div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="text" class="form-control input"
+                           readonly style="width:130px"
+                           value="Date:">
+                </td>
+                <td style="width:100%">
+                    <input type="text" class="form-control input" placeholder="Transaction date"
+                           ng-model="date" value={{date}} required
+                           ng-change=updateChange(date,"date")
+                           name="date">
+
+                    <div ng-if="form.$submitted">
+                        <div ng-show="form.date.$error.required" class="valid">Value required</div>
+                    </div>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <input type="text" class="form-control input"
+                           readonly style="width:130px"
+                           value="Description:">
+                </td>
+                <td style="width:100%">
+                    <input type="text" class="form-control input" placeholder="Transaction description"
+                           ng-model="description" value={{description}} required
+                           ng-change=updateChange(description,"description")
+                           name="description">
+
+                    <div ng-if="form.$submitted">
+                        <div ng-show="form.description.$error.required" class="valid">Value required</div>
+                    </div>
+                </td>
+            </tr>
+        </table>
+
+		<center>
+			<input class="btn btn-primary button" type="submit" value="Submit">&nbsp
+			<button class="btn btn-primary button" ng-click="outputEditBack()">Back</button>
+		</center>
+    </form>
+</body>
+</html>

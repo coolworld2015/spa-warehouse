@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <center>
+        <div class="header">Configurations</div>
+        <br><br>
+        <table class="table table-bordered">
+            <tr>
+                <td><b>Application mode</b>
+                    <input type="text"
+                    class="form-control"
+                    ng-model = "mode"
+                    ng-click = "toggleMode()"
+                    readonly value="mode">
+                </td>
+            </tr>
+            <tr>
+                <td><b>Transaction</b>
+                    <select class="form-control"
+                            scroll-there
+                            require
+                            ng-change=updateChange(selectedItem,"selectedItem")
+                            ng-options="option.name for option in options"
+                            ng-model="selectedItem">
+                    </select>
+
+                    <div ng-show="loading" class="header" style="font-size:25px;">&nbsp
+                        Loading...
+                    </div>
+                    <div ng-show="complete" class="header" style="font-size:25px;">&nbsp
+                        Action is completed
+                    </div>
+                    <div ng-show="error" class="alert alert-danger input" style="margin-bottom:-8px">
+                        Something went wrong
+                    </div>
+                </td>
+            </tr>
+        </table>
+
+        <button class="btn btn-primary button" ng-click="doAction()">Action</button>
+        &nbsp
+        <button class="btn btn-primary button" ng-click="toMain()" scroll-here>Back</button>
+        <br><br>
+    </center>
+</body>
+</html>

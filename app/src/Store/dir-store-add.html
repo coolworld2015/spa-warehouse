@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<center>
+    <form ng-submit="storeAddSubmit()">
+        <div class="header">New record</div>
+        <table class="table table-bordered">
+            <tr><td><b>Name</b><input type="text" required placeholder="Commodities name" class="form-control" ng-model="name" ng-change=updateChange(name,"name")></tr></td>
+            <tr><td><b>Quantity</b><input type="text" required placeholder="Commodities quantity" class="form-control" ng-model="quantity" ng-change=updateChange(quantity,"quantity")></tr></td>
+            <tr><td><b>Description</b><input type="text" required placeholder="Commodities description" class="form-control" ng-model="description" ng-change=updateChange(description,"description")></tr></td>
+            </table><br>
+
+        <input type="submit" class="btn btn-primary" value="Submit">&nbsp
+        <button class="btn btn-primary" ng-click="storeEditBack()">Back</button>
+    </form>
+</center>
+</body>
+</html>
