@@ -34,7 +34,7 @@
 		}
 
         $rootScope.myConfig = {
-            webUrl: 'http://coolworld.herokuapp.com/'
+            webUrl: 'http://coolworld2015a1.herokuapp.com/'
             //webUrl: 'http://localhost:3000/'
         };
 

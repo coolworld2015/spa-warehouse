@@ -93,7 +93,7 @@
         }
 
         function getClientsHeroku() {
-            var url = 'http://coolworld.herokuapp.com/api/clients/get';
+            var url = 'http://coolworld2015a1.herokuapp.com/api/clients/get';
             $http.get(url)
                 .then(function (results) {
                     console.log(results.data);
@@ -108,7 +108,7 @@
         }
 
         function getGoodsHeroku() {
-            var url = 'http://coolworld.herokuapp.com/api/goods/get';
+            var url = 'http://coolworld2015a1.herokuapp.com/api/goods/get';
             $http.get(url)
                 .then(function (results) {
                     console.log(results.data);
@@ -123,7 +123,7 @@
         }
 
         function getUsersHeroku() {
-            var url = 'http://coolworld.herokuapp.com/api/users/get';
+            var url = 'http://coolworld2015a1.herokuapp.com/api/users/get';
             $http.get(url)
                 .then(function (results) {
                     console.log(results.data);
