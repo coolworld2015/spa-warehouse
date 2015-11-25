@@ -1,5 +1,5 @@
 # SPA Warehouse
-git clone https://github.com/wintermute2015/spa-warehouse.git
+git clone https://github.com/coolworld2015/spa-warehouse.git
 -------------------------------------------------------------------------------------------------
 npm i
 -------------------------------------------------------------------------------------------------
